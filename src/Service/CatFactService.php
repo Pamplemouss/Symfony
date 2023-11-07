@@ -1,12 +1,11 @@
 <?php
 namespace App\Service;
 
-use App\Service\CatFactInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-class CatFactService implements CatFactInterface
+class CatFactService
 {
     public function __construct(private HttpClientInterface $client) {
     }

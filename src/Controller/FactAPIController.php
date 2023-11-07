@@ -1,7 +1,6 @@
 <?php
 namespace App\Controller;
 
-use App\Service\CatFactMock;
 use App\Service\CatFactService;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
