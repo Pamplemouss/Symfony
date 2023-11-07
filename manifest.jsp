@@ -10,7 +10,7 @@ description: |
 ssl: true
 
 nodes:
-  - image: pamplemouss/symphonytest:latest
+  - image: pamplemouss/symfonytest:latest
     count: 1
     cloudlets: 8
     fixedCloudlets: 1
