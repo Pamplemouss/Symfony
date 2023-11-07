@@ -1,13 +1,11 @@
 <?php
 namespace App\Service;
 
+use App\Service\CatFactInterface;
 use Symfony\Component\HttpFoundation\Response;
 
-class MockInterface
-{
-    public function __construct() {
-    }
-    
+class CatFactMock implements CatFactInterface
+{    
     public function getFact()
     {
         $response = new Response();

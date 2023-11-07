@@ -1,19 +1,29 @@
 <?php
 namespace App\Controller;
 
-use App\Service\MockInterface;
-use App\Service\CatFactInterface;
+use App\Service\CatFactMock;
+use App\Service\CatFactService;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class FactAPIController extends AbstractController
 {
-    public function __construct(private CatFactInterface $interface) {
+    public function __construct(private CatFactService $catFactService) {
     }
-    // TODO service / gérer erreur
+
     #[Route('/v1/api/test-content')]
     public function getFact()
     {
-        return $this->interface->getFact();
+        try {
+            $fact = $this->catFactService->getFact();
+        } catch (Exception $e) {
+            echo 'Caught exception: ', $e->getMessage(), "\n";
+            $response = new Response();
+            $response->setStatusCode(500);
+            return $response;
+        }
+
+        return $fact;
     }
 }
